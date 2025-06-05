@@ -36,6 +36,7 @@ sample_data = spark.createDataFrame([
     (2025, 7, "AS", "BOS"),
 ], ["year", "month", "carrier", "airport"])
 
+
 # Aplicăm același indexer și assembler pe datele noi
 sample_data = carrier_indexer_model.transform(sample_data)
 sample_data = assembler.transform(sample_data)
