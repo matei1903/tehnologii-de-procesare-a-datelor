@@ -1,0 +1,22 @@
+digraph FlightDelaysApp {
+    rankdir=LR;
+    node [shape=box, style=filled, color=lightblue, fontname="Arial"];
+
+    app [label="dashboard.py\n(orchestrator)", shape=folder, color=lightgreen];
+
+    spark [label="spark_session\n(init / stop Spark)"];
+    data [label="data_loading\n(load & preprocess data)"];
+    vis  [label="visualizations\n(create charts)"];
+    model [label="modeling\n(train & predict ML models)"];
+    utils [label="utils\n(helper functions)"];
+
+    app -> spark;
+    app -> data;
+    app -> vis;
+    app -> model;
+
+    spark -> utils [style=dotted];
+    data -> utils [style=dotted];
+    vis -> utils [style=dotted];
+    model -> utils [style=dotted];
+}
